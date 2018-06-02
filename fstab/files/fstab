@@ -1,0 +1,15 @@
+/dev/mapper/Sys-root    /                       ext4    defaults        1 1
+UUID=df3a7d14-cbbb-4465-9894-33c8c4e1eaa2 /boot                   ext2    defaults        1 2
+/dev/mapper/Sys-home    /home                   ext4    defaults        1 2
+/dev/mapper/Sys-opt     /opt                    ext4    defaults        1 2
+/dev/mapper/Sys-tmp     /tmp                    ext4    defaults        1 2
+/dev/mapper/Sys-usr     /usr                    ext4    defaults        1 2
+/dev/mapper/Sys-var     /var                    ext4    defaults        1 2
+/dev/mapper/Sys-crash   /var/crash              ext4    defaults        1 2
+/dev/mapper/Sys-log     /var/log                ext4    defaults        1 2
+/dev/mapper/Sys-audit   /var/log/audit          ext4    defaults        1 2
+/dev/mapper/Sys-vtmp    /var/tmp                ext4    defaults        1 2
+/dev/mapper/Sys-baseswap swap                    swap    defaults        0 0
+/dev/mapper/Unorthodox-notcommon	/Notcommon	btrfs	defaults	1 2
+/dev/mapper/Unorthodox-small	/var/small	xfs	defaults	1 2
+/dev/mapper/Unorthodox-last	/opt/last	ext4	defaults	1 2
