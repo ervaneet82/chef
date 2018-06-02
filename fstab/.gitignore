@@ -20,3 +20,15 @@ bin/*
 Berksfile.lock
 .zero-knife.rb
 Policyfile.lock.json
+.*
+.*/
+.**/
+.terraform/
+.delivery
+.kitchen/
+mykey
+mykey.pub
+terraform.*
+*.deb
+*.rpm
+.kitchen.yml
