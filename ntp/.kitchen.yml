@@ -1,6 +1,24 @@
 ---
 driver:
-  name: vagrant
+  name: ec2
+  instance_type: t2.micro
+  aws_ssh_key_id: my_aws
+  security_group_ids: ["sg-01e23ba9d317036eb"]
+  region: us-east-1
+  subnet_id: subnet-08bf58a98ae93e879
+  ssl_verify_peer: false
+  associate_public_ip: false
+  private_ip_address: 10.0.1.5
+  interface: private_dns
+  tags:
+    Name: test-kitchen-rhel-base
+
+platforms:
+  - name: ubuntu-16.04
+    driver:
+      image_id: ami-a4dc46db
+    transport:
+    username: ubuntu
 
 provisioner:
   name: chef_zero
@@ -11,9 +29,6 @@ provisioner:
 
 verifier:
   name: inspec
-
-platforms:
-  - name: centos-7
 
 suites:
   - name: default
