@@ -15,38 +15,38 @@ yum_package 'chefdk' do
   not_if "rpm -q chefdk"
 end
 
-bash 'pip install' do
-  code <<-EOH
-  yum -y install epel-release
-  yum -y install python-pip
-  pip install awscli
-  EOH
-end
-
-%w(
-   kitchen-sync
-   rake
-   inspec
-   awspec
-   kitchen-ec2
-   berkshelf
-   rubocop
- ).each do |gem|
-  chef_gem gem do
-    action :install
-    timeout 600
-  end
-end
-
-execute 'install_rubocop' do
-  command 'ln -s /opt/chefdk/embedded/bin/rubocop /usr/bin/rubocop'
-  not_if { ::File.exist?('/usr/bin/rubocop') }
-end
-
-cookbook_file '/home/ec2-user/.chef/jenkins.pem' do
-  source 'jenkins.pem'
-  mode '600'
-  owner 'ec2-user'
-  group 'ec2-user'
-  not_if { ::File.exist?('/home/ec2-user/.chef/jenkins.pem') }
-end
+# bash 'pip install' do
+#   code <<-EOH
+#   yum -y install epel-release
+#   yum -y install python-pip
+#   pip install awscli
+#   EOH
+# end
+#
+# %w(
+#    kitchen-sync
+#    rake
+#    inspec
+#    awspec
+#    kitchen-ec2
+#    berkshelf
+#    rubocop
+#  ).each do |gem|
+#   chef_gem gem do
+#     action :install
+#     timeout 600
+#   end
+# end
+#
+# execute 'install_rubocop' do
+#   command 'ln -s /opt/chefdk/embedded/bin/rubocop /usr/bin/rubocop'
+#   not_if { ::File.exist?('/usr/bin/rubocop') }
+# end
+#
+# cookbook_file '/home/ec2-user/.chef/jenkins.pem' do
+#   source 'jenkins.pem'
+#   mode '600'
+#   owner 'ec2-user'
+#   group 'ec2-user'
+#   not_if { ::File.exist?('/home/ec2-user/.chef/jenkins.pem') }
+# end
