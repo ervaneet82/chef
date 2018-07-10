@@ -1,0 +1,2 @@
+line=`grep -n '<%= node['fstab']['home'] %>' /etc/fstab | cut -d':' -f1`
+sed -i ''"$line"'s/defaults/<%= node['fstab']['home'] %>/g' /etc/fstab
